@@ -1,0 +1,52 @@
+#include<stdio.h> #include<conio.h> #define N 5
+int stack[N];int top =-1; int i,j;
+void push(); void pop(); void dis(); void update();int main(){ int ch;do
+{
+printf("\n");
+
+printf("1.FOR PUSH \n"); printf("2.FOR POP \n"); printf("3.FOR DIS \n"); printf("4.FOR Update \n");printf("5.FOR Exit \n"); scanf("%d",&ch);
+switch (ch)
+{
+case 1:
+push();break; case 2:
+pop();break; case 3:
+dis(); break; case 4:
+update();break; default:
+break;
+}
+} while (ch!=5); return 0;
+}
+void push(){ if (top==N-1)
+{
+printf("Stack is full");
+}
+else{ int val;
+printf("Enter the value :");scanf("%d",&val); top++; stack[top] = val;
+}
+}
+void dis(){ printf("\n"); for (int i = 0; i <=top; i++)
+{
+
+printf(" %d ",stack[i]);
+}
+}
+void pop(){ if (top==-1)
+{
+printf("Stackk is EMpty");
+}
+else{
+int popedel = stack[top];top--;
+printf("POPED ELEMENT IS : %d", popedel);dis();
+}
+}
+void update()
+{
+int idx,newval; printf("Enter the Index :");scanf("%d",&idx); if (idx<0 || idx>top)
+{
+printf("INVALID INDEX \n");
+}
+else{
+printf("Enter the value for Update :");scanf("%d",&newval); stack[idx] = newval;
+printf(" UPDATED VALUE %d at INDEX %d",newval,idx);dis();
+}
+}
